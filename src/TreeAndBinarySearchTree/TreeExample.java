@@ -94,16 +94,16 @@ public class TreeExample {
         Node root = BinaryTree.buildTree(nodes);
         System.out.println("preOrder");
         preOrder(root);
-        System.out.println("");
+        System.out.println();
         System.out.println("inOrder");
         inOrder(root);
-        System.out.println("");
+        System.out.println();
         System.out.println("postOrder");
         postOrder(root);
-        System.out.println("");
+        System.out.println();
         System.out.println("levelOrder");
         levelOrder(root);
-        System.out.println("");
+        System.out.println();
 
     }
 
