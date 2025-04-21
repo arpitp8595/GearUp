@@ -89,7 +89,38 @@ public class TreeExample {
         }
     }
 
+    public static int diameter = 0;
+
+    private static int diameterOfBinaryTree(Node root) {
+        helper(root);
+        return diameter;
+    }
+
+    private static int helper(Node root) {
+        if (root == null) {
+            return 0;
+        }
+
+        int leftDepth = helper(root.left);
+        int rightDepth = helper(root.right);
+
+        int currentDepth = leftDepth + rightDepth;
+        diameter = Math.max(diameter, currentDepth);
+
+        return Math.max(leftDepth, rightDepth) + 1;
+    }
+
+
     public static void main(String[] args) {
+/*
+                 1
+                / \
+               2   3
+              / \
+             4   5
+                /
+               6
+*/
         int[] nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         Node root = BinaryTree.buildTree(nodes);
         System.out.println("preOrder");
@@ -103,7 +134,7 @@ public class TreeExample {
         System.out.println();
         System.out.println("levelOrder");
         levelOrder(root);
-        System.out.println();
+        System.out.println("Diameter of Tree: "+diameterOfBinaryTree(root));
 
     }
 
