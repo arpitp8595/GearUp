@@ -110,6 +110,15 @@ public class TreeExample {
         return Math.max(leftDepth, rightDepth) + 1;
     }
 
+    private static int getLCA(Node root, Node p, Node q) {
+        if (root.data > p.data && root.data > q.data) {
+            return getLCA(root.left, p, q);
+        } if (root.data < p.data && root.data < q.data) {
+            return getLCA(root.right, p , q);
+        }
+        return root.data;
+    }
+
 
     public static void main(String[] args) {
 /*
@@ -136,7 +145,10 @@ public class TreeExample {
         levelOrder(root);
         System.out.println("Diameter of Tree: "+diameterOfBinaryTree(root));
 
+        //6,2,8,0,4,7,9,null,null,3,5
+        int[] BSTNodes = {6,2,8,0,4,7,9,-1,-1,3,5};
+        Node bstRoot = BinaryTree.buildTree(BSTNodes);
+        //System.out.println("LCA of Binary Search Tree: "+getLCA(bstRoot, new Node(4),new Node(6)));
+
     }
-
-
 }
