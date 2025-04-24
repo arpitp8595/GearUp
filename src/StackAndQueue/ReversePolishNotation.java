@@ -11,7 +11,7 @@ public class ReversePolishNotation {
     private static int evalRPN(String[] tokens) {
         Stack<Integer> stack = new Stack<>();
         for (String c: tokens) {
-            if (c.equals("+")) {t status
+            if (c.equals("+")) {
                 stack.push(stack.pop() + stack.pop());
             } else if (c.equals("-")) {
                 int second = stack.pop();
