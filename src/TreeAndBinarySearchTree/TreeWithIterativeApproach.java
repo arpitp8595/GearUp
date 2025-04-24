@@ -1,5 +1,7 @@
 package TreeAndBinarySearchTree;
 
+import com.sun.source.tree.Tree;
+
 import java.util.Stack;
 
 public class TreeWithIterativeApproach {
@@ -13,7 +15,6 @@ public class TreeWithIterativeApproach {
              2   4
             /
            1
-
 */
         TreeNode root = new TreeNode(5);
         root.left = new TreeNode(3);
@@ -24,13 +25,32 @@ public class TreeWithIterativeApproach {
 
         root.left.left.left = new TreeNode(1);
 
-
         System.out.println("Original Tree: ");
-        printPreOrder(root);
+        //printPreOrder(root);
         System.out.println("\n");
         System.out.println("Invert Tree: ");
-        invertTree(root);
+        //invertTree(root);
+        System.out.println("\n");
+        System.out.println("Kth Smallest element: " +KthSmallestElement(root, 3));
     }
+
+    private static int KthSmallestElement(TreeNode root, int k) {
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode current = root;
+
+        while (current != null || !stack.isEmpty()) {
+            while (current != null) {
+                stack.push(current);
+                current = current.left;
+            }
+            current = stack.pop();
+            k--;
+            if (k == 0) return current.val;
+            current = current.right;
+        }
+        return -1;
+    }
+
     public static void printPreOrder(TreeNode root) {
         if (root == null) return;
         System.out.print(root.val + " ");
@@ -38,26 +58,6 @@ public class TreeWithIterativeApproach {
         printPreOrder(root.right);
     }
 
-
-    public static void invertTree1(TreeNode root) {
-        Stack<TreeNode> stack = new Stack<>();
-        if (root != null) {
-            stack.push(root);
-        }
-        while (!stack.isEmpty()) {
-            TreeNode current = stack.pop();
-            if (current.left != null){
-                stack.push(current.left);
-            }
-            if (current.right != null) {
-                stack.push(current.right);
-            }
-            TreeNode temp = current.left;
-            current.left = current.right;
-            current.right = temp;
-        }
-        printPreOrder(root);
-    }
     public static void invertTree(TreeNode root) {
         // Step 1: Create a stack to simulate DFS traversal
         Stack<TreeNode> stack = new Stack<>();
