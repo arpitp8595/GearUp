@@ -32,23 +32,6 @@ public class TreeWithIterativeApproach {
         //invertTree(root);
         System.out.println("\n");
         System.out.println("Kth Smallest element: " +KthSmallestElement(root, 3));
-    }
-
-    private static int KthSmallestElement(TreeNode root, int k) {
-        Stack<TreeNode> stack = new Stack<>();
-        TreeNode current = root;
-
-        while (current != null || !stack.isEmpty()) {
-            while (current != null) {
-                stack.push(current);
-                current = current.left;
-            }
-            current = stack.pop();
-            k--;
-            if (k == 0) return current.val;
-            current = current.right;
-        }
-        return -1;
 /*
                   4
                 /   \
@@ -275,6 +258,4 @@ public class TreeWithIterativeApproach {
 
         return depth;
     }
-
-
 }
