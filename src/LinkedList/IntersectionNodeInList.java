@@ -28,6 +28,7 @@ public class IntersectionNodeInList {
         System.out.println("Intersected at :" +resultNode.val);
     }
 
+    //O(m + n) O(1)
     private static ListNode getIntersectionNodeInList(ListNode head, ListNode head1) {
         int lenA = getLen(head);
         int lenB = getLen(head1);
