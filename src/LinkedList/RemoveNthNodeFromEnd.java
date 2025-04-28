@@ -12,7 +12,8 @@ public class RemoveNthNodeFromEnd {
         printLinkedList(head);
         System.out.print("\n");
         System.out.print("LinkedList before removing Nth node: ");
-        printLinkedList(removeNthFromEndElement(head, 3));
+        int n = 3;
+        printLinkedList(removeNthFromEndElement(head, n));
     }
 
     //O(N) O(1)

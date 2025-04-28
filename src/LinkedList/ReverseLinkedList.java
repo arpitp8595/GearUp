@@ -3,7 +3,7 @@ package LinkedList;
 class ListNode{
     int val;
     ListNode next;
-    ListNode() {}
+
     ListNode(int val) {
         this.val = val;
         next = null;

@@ -1,5 +1,7 @@
 package LinkedList;
 
+import java.util.Objects;
+
 import static LinkedList.MergeTwoSortedList.printList;
 
 public class IntersectionNodeInList {
@@ -25,34 +27,34 @@ public class IntersectionNodeInList {
         System.out.print("Print List B: ");
         printList(head1);
         ListNode resultNode = getIntersectionNodeInList(head, head1);
-        System.out.println("Intersected at :" +resultNode.val);
+        System.out.println("Intersected at :" + Objects.requireNonNull(resultNode).val);
     }
 
     //O(m + n) O(1)
-    private static ListNode getIntersectionNodeInList(ListNode head, ListNode head1) {
-        int lenA = getLen(head);
-        int lenB = getLen(head1);
+    private static ListNode getIntersectionNodeInList(ListNode headA, ListNode headB) {
+        int lenA = getLen(headA);
+        int lenB = getLen(headB);
 
         // Align the longer list
         while (lenA > lenB) {
-            head = head.next;
+            headA = headA.next;
             lenA--;
         }
         while (lenB > lenA) {
-            head1 = head1.next;
+            headB = headB.next;
             lenB--;
         }
 
         // Traverse both lists until intersection or end (null)
-        while (head != head1) {
-            head = head.next;
-            head1 = head1.next;
+        while (headA != headB) {
+            headA = headA.next;
+            headB = headB.next;
             // If either list ends, no intersection
-            if (head == null || head1 == null) {
-                return null;
-            }
+//            if (headA == null || headB == null) {
+//                return null;
+//            }
         }
-        return head; // Returns intersection node or null
+        return headA; // Returns intersection node or null
     }
 
     private static int getLen(ListNode head) {

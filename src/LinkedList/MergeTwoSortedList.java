@@ -35,8 +35,12 @@ public class MergeTwoSortedList {
         }
 
         // Attach the remaining elements of head1 or head2
-        temp.next = (head1 != null) ? head1 : head2;
-
+        //temp.next = (head1 != null) ? head1 : head2;
+        if(head1 != null) {
+            temp.next = head1;
+        } else {
+            temp.next = head2;
+        }
         return mergedLL.next;
     }
 
