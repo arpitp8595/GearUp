@@ -89,23 +89,66 @@ public class TreeExample {
         }
     }
 
+    public static int diameter = 0;
+
+    private static int diameterOfBinaryTree(Node root) {
+        helper(root);
+        return diameter;
+    }
+
+    private static int helper(Node root) {
+        if (root == null) {
+            return 0;
+        }
+
+        int leftDepth = helper(root.left);
+        int rightDepth = helper(root.right);
+
+        int currentDepth = leftDepth + rightDepth;
+        diameter = Math.max(diameter, currentDepth);
+
+        return Math.max(leftDepth, rightDepth) + 1;
+    }
+
+    private static int getLCA(Node root, Node p, Node q) {
+        if (root.data > p.data && root.data > q.data) {
+            return getLCA(root.left, p, q);
+        } if (root.data < p.data && root.data < q.data) {
+            return getLCA(root.right, p , q);
+        }
+        return root.data;
+    }
+
+
     public static void main(String[] args) {
+/*
+                 1
+                / \
+               2   3
+              / \
+             4   5
+                /
+               6
+*/
         int[] nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         Node root = BinaryTree.buildTree(nodes);
         System.out.println("preOrder");
         preOrder(root);
-        System.out.println("");
+        System.out.println();
         System.out.println("inOrder");
         inOrder(root);
-        System.out.println("");
+        System.out.println();
         System.out.println("postOrder");
         postOrder(root);
-        System.out.println("");
+        System.out.println();
         System.out.println("levelOrder");
         levelOrder(root);
-        System.out.println("");
+        System.out.println("Diameter of Tree: "+diameterOfBinaryTree(root));
+
+        //6,2,8,0,4,7,9,null,null,3,5
+        int[] BSTNodes = {6,2,8,0,4,7,9,-1,-1,3,5};
+        Node bstRoot = BinaryTree.buildTree(BSTNodes);
+        //System.out.println("LCA of Binary Search Tree: "+getLCA(bstRoot, new Node(4),new Node(6)));
 
     }
-
-
 }
