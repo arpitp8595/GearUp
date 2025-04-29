@@ -59,7 +59,13 @@ public class FlattenMultilevelDoublyLinkedList {
         node8.child = node11;
         node11.next = node12;
         node12.prev = node11;
-
+/*
+        1 ↔ 2 ↔ 3 ↔ 4 ↔ 5 ↔ 6
+              ↘
+                 7 ↔ 8 ↔ 9 ↔ 10
+                       ↘
+                         11 ↔ 12
+*/
         // Flatten the list
         Node flattenedHead = flatten(head);
 
