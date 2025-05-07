@@ -1,4 +1,4 @@
-package Stack;
+package StackAndQueue;
 
 class Stack {
     private static final int STACK_CAPACITY = 101;
