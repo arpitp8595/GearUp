@@ -2,7 +2,7 @@ package SlidingWindow;
 
 public class MinimumSizeSubArraySum {
     public static void main(String[] args) {
-        int[] nums = {2,3,1,2,40,3};
+        int[] nums = {2,3,1,2,4,3};
         int target = 7;
         System.out.println("Result: "+minSubArrayLen(target, nums));
     }
