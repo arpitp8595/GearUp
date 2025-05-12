@@ -22,7 +22,6 @@ public class MergeIntervals {
         mergedIntervals.add(currentInterval);
 
         for (int[] interval : intervals) {
-            int currentStart = currentInterval[0];
             int currentEnd = currentInterval[1];
             int nextStart = interval[0];
             int nextEnd = interval[1];

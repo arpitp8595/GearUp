@@ -1,6 +1,6 @@
 package ArraysAndStrings;
 
-public class BestTimeTobuyStocks {
+public class BestTimeToBuyStocks {
     public static void main(String[] args) {
         int[] array = {7,4,900,111,6700,340,0};
         System.out.println("Best time to buy stocks: "+ getBestTimeToBuyStock(array));
