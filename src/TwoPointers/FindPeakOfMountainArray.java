@@ -2,8 +2,8 @@ package TwoPointers;
 
 public class FindPeakOfMountainArray {
     public static void main(String[] args) {
-        int[] nums = {0,10,5,2};
-        System.out.print("Peak of an Array: "+getThePeak(nums));
+        int[] nums = {0,1,10,5,2};
+        System.out.print("Peak(Index) of an Array: "+getThePeak(nums));
     }
 
     private static int getThePeak(int[] nums) {

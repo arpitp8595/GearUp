@@ -9,6 +9,8 @@ public class SwapNodesInPairs {
         head.next.next = new ListNode(3);
         head.next.next.next = new ListNode(4);
         head.next.next.next.next = new ListNode(5);
+        System.out.println("Original List: ");
+        printList(head);
         System.out.println("Resulted Swapped List: ");
         printList(swapPairs(head));
     }
@@ -19,20 +21,20 @@ public class SwapNodesInPairs {
         dummy.next = head;
         ListNode prev = dummy; // Tracks the node before the current pair
 
+        // Iterate through the list in pairs
         while (prev.next != null && prev.next.next != null) {
-            // Nodes to be swapped
+            // Identify the nodes to be swapped
             ListNode first = prev.next;
-            ListNode second = prev.next.next;
+            ListNode second = first.next;
 
-            // Swap nodes
-            prev.next = second;         // Step 1: Link prev to second
-            first.next = second.next;   // Step 2: Link first to next pair
-            second.next = first;        // Step 3: Link second to first
+            // Perform the swapping
+            first.next = second.next; // Connect the first node to the node after the second node
+            second.next = first;      // Connect the second node to the first node
+            prev.next = second;       // Connect the previous node to the second node
 
-            // Move prev to the end of the current pair
+            // Move prev to the end of the swapped pair
             prev = first;
         }
-
-        return dummy.next; // New head after swaps
+        return dummy.next; // Return the new head after swaps
     }
 }
