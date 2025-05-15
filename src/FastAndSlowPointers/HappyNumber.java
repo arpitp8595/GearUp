@@ -8,33 +8,25 @@ public class HappyNumber {
     }
 
     public static boolean isHappy(int n) {
-
         int slow = n;
-        int fast = n;
-        //while loop is not used here because initially slow and
-        //fast pointer will be equal only, so the loop won't run.
-        do {
-            //slow moving one step ahead and fast moving two steps ahead
-            slow = square(slow);
-            fast = square(square(fast));
-        } while (slow != fast);
+        int fast = getNext(n); // Fast starts one step ahead to avoid do-while
 
-        //if a cycle exists, then the number is not a happy number
-        //and slow will have a value other than 1
-        return slow == 1;
-    }
-
-    //Finding the square of the digits of a number
-    public static int square(int num) {
-
-        int ans = 0;
-
-        while(num > 0) {
-            int remainder = num % 10;
-            ans += remainder * remainder;
-            num /= 10;
+        while (fast != 1 && slow != fast) {
+            slow = getNext(slow);
+            fast = getNext(getNext(fast));
         }
 
-        return ans;
+        return fast == 1; // If fast reaches 1, it's a happy number
+    }
+
+    // Helper function to compute the sum of squared digits
+    private static int getNext(int num) {
+        int sum = 0;
+        while (num > 0) {
+            int digit = num % 10;
+            sum += digit * digit;
+            num /= 10;
+        }
+        return sum;
     }
 }
