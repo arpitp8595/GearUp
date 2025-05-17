@@ -30,7 +30,6 @@ public class MyHashCodeObject {
         result = 31 * result + Arrays.hashCode(data);
         return result;
     }
-
     // Example Usage
     public static void main(String[] args) {
         MyHashCodeObject obj1 = new MyHashCodeObject(1, "Test", new int[]{1, 2, 3});

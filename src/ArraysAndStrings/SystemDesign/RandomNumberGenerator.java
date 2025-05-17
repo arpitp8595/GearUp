@@ -15,7 +15,6 @@ public class RandomNumberGenerator {
 class Generate{
     int start;
     int end;
-
     private Integer result;
 
     Set<Integer> set = new HashSet<>();
