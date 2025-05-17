@@ -2,14 +2,14 @@ package TwoPointers;
 
 public class FindPeakOfMountainArray {
     public static void main(String[] args) {
-        int[] nums = {0,10,5,2};
-        System.out.print("Peak of an Array: "+getThePeak(nums));
+        int[] nums = {0,1,2,4,10,8,6,5};
+        System.out.print("Peak(Index) of an Array: "+getThePeak(nums));
     }
 
     private static int getThePeak(int[] nums) {
         int n = nums.length;
         int s = 0;
-        int e = n -1;
+        int e = n - 1;
         while (s<e) {
             int mid = s + (e-s) / 2;
             if (nums[mid+1] > nums[mid]) {

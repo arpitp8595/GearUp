@@ -11,20 +11,20 @@ public class ReversePolishNotation {
     private static int evalRPN(String[] tokens) {
         Stack<Integer> stack = new Stack<>();
         for (String c: tokens) {
-            if (c.equals("+")) {
-                stack.push(stack.pop() + stack.pop());
-            } else if (c.equals("-")) {
-                int second = stack.pop();
-                int first = stack.pop();
-                stack.push(first-second);
-            } else if (c.equals("*")) {
-                stack.push(stack.pop()*stack.pop());
-            } else if (c.equals("/")) {
-                int second = stack.pop();
-                int first = stack.pop();
-                stack.push(first/second);
-            } else {
-                stack.push(Integer.parseInt(c));
+            switch (c) {
+                case "+" -> stack.push(stack.pop() + stack.pop());
+                case "-" -> {
+                    int second = stack.pop();
+                    int first = stack.pop();
+                    stack.push(first - second);
+                }
+                case "*" -> stack.push(stack.pop() * stack.pop());
+                case "/" -> {
+                    int second = stack.pop();
+                    int first = stack.pop();
+                    stack.push(first / second);
+                }
+                default -> stack.push(Integer.parseInt(c));
             }
         }
         return stack.peek();
