@@ -13,6 +13,9 @@ public class NumberOfIslands {
         System.out.println(numOfIslands(grid)); // Output: 3
     }
 
+    //https://youtu.be/dX6RZYxw41E?si=9TUMrWMPLUMAkGcY
+
+
     public static int numOfIslands(char[][] grid){
         N = grid.length;
         M = grid.length;
