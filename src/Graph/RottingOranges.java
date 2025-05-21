@@ -6,7 +6,7 @@ import java.util.Queue;
 public class RottingOranges {
 
     public static void main(String[] args) {
-        int[][] nums = {{2,1,1},{1,1,0},{0,1,1}};
+        int[][] nums = {{2,2,1},{1,1,0},{0,1,1}};
         System.out.println("Total Number of Days: "+rottingOranges(nums));
     }
 
@@ -26,7 +26,6 @@ public class RottingOranges {
     public static int rottingOranges(int[][] grid) {
         N = grid.length ; M = grid[0].length ;
         Queue<Pair> queue = new LinkedList<>();
-        int n = grid.length;
         int freshOranges = 0;
 
         for (int i=0; i<N; i++) {
@@ -58,7 +57,6 @@ public class RottingOranges {
                     }
                 }
             }
-
         }
         return freshOranges == 0 ? minutes : -1;
     }
