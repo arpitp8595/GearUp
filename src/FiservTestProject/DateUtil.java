@@ -1,13 +1,30 @@
-/*
+package FiservTestProject;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+
 import org.apache.commons.lang3.ObjectUtils;
 
 public class DateUtil {
 
+    public static void main(String[] args) {
+        Address address = new Address();
+        address.setStartDate("2025-05-26");
+        address.setEndDate("2026-05-22");
+        try {
+            System.out.println("Are dates same? :" );
+            validateEndDate(address);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     private static final String DATE_FORMAT_SERVICE = "yyyy-MM-dd"; // Define your date format
+
+    //e.g.:  Fri May 30 00:00:00 EDT 2025 ,  Sat May 30 00:00:00 EDT 2026
+
 
     // Method to convert string to Date
     public static Date convertStringToDate(String dateString, String format) throws ParseException {
@@ -15,24 +32,24 @@ public class DateUtil {
         return dateFormat.parse(dateString);
     }
 
-    public static void validateEndDate(Address address) {
+    public static void validateEndDate(Address address) throws Exception {
         try {
             // Parse start and end dates from the address object
-            Date startDate = convertStringToDate(address.getBeginDate(), DATE_FORMAT_SERVICE);
+            Date startDate = convertStringToDate(address.getStartDate(), DATE_FORMAT_SERVICE);
             Date endDate = convertStringToDate(address.getEndDate(), DATE_FORMAT_SERVICE);
 
             // Validate whether the end date is within 12 months of the start date and other conditions
             if (!isEndDateWithin12Months(startDate, endDate) || !isStartDateValid(startDate) || startDate.equals(endDate)) {
-                throw generateCommonValidationException(BusinessErrorCode.INVALID_TEMPORAL_END_DATE_RANGE.errorCode());
+                throw generateCommonValidationException("INVALID_TEMPORAL_END_DATE_RANGE");
             }
         } catch (ParseException e) {
             // Log and rethrow exception for invalid date parsing
-            log.error("Error parsing date: ", e);
-            throw generateCommonValidationException(BusinessErrorCode.INVALID_DATE_FORMAT.errorCode(), e);
+            System.out.println("Error parsing date: "  + e);
+            throw generateCommonValidationException("INVALID_DATE_FORMAT");
         } catch (Exception e) {
             // Log and rethrow any other exceptions
-            log.error("Error validating end date: ", e);
-            throw generateCommonValidationException(BusinessErrorCode.GENERAL_ERROR.errorCode(), e);
+            System.out.println("Error validating end date: " + e);
+            throw generateCommonValidationException("GENERAL_ERROR");
         }
     }
 
@@ -72,4 +89,3 @@ public class DateUtil {
         return new Exception("Validation Exception: " + errorCode, cause);
     }
 }
-*/
