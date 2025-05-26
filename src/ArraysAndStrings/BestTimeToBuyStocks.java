@@ -2,7 +2,7 @@ package ArraysAndStrings;
 
 public class BestTimeToBuyStocks {
     public static void main(String[] args) {
-        int[] array = {7,4,900,111,6700,340,0};
+        int[] array = {7,4,9,1,6,3,0};
         System.out.println("Best time to buy stocks: "+ getBestTimeToBuyStock(array));
     }
     //Easy: 121. Best time to buy and sell stocks : https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/

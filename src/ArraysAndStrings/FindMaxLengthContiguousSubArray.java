@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class FindMaxLengthContiguousSubArray {
     public static void main(String[] args) {
-        int[] nums = {0,1,1,1,1,1,0,0,0,0,0};
+        int[] nums = {0,1,0,1,1,1,0,0,0,0,0};
         System.out.println("MaxLength of SubArray: "+getMaxLength(nums));
     }
 
