@@ -5,17 +5,21 @@ import java.util.Arrays;
 public class NumberOfIslands {
     public static void main(String[] args) {
         char[][] grid = {
-                {'1', '1', '0', '0', '0'},
-                {'1', '1', '0', '0', '0'},
+                {'1', '1', '0', '0', '1'},
+                {'1', '1', '0', '1', '1'},
                 {'0', '0', '1', '0', '0'},
+                {'0', '0', '0', '0', '0'},
                 {'0', '0', '0', '1', '1'}
         };
-        System.out.println(numOfIslands(grid)); // Output: 3
+        System.out.println(numOfIslands(grid)); // Output: 4
     }
+
+    //https://youtu.be/dX6RZYxw41E?si=9TUMrWMPLUMAkGcY
+
 
     public static int numOfIslands(char[][] grid){
         N = grid.length;
-        M = grid.length;
+        M = grid[0].length;
         int count = 0;
 
         boolean[][] visited = new boolean[N][M];
@@ -45,7 +49,6 @@ public class NumberOfIslands {
                 dfsTraversal(grid, newI, newJ, visited);
             }
         }
-
     }
 
     static int N;
