@@ -1,4 +1,4 @@
-package LinkedList;
+package src.LinkedList;
 
 public class LinkedListRaw {
 

@@ -1,4 +1,4 @@
-package ArraysAndStrings.MatrixArray;
+package src.ArraysAndStrings.MatrixArray;
 
 public class kthSmallest {
 

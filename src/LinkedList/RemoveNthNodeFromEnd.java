@@ -1,4 +1,4 @@
-package LinkedList;
+package src.LinkedList;
 
 public class RemoveNthNodeFromEnd {
     public static void main(String[] args) {

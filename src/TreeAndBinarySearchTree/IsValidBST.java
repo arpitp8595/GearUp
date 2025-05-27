@@ -1,6 +1,6 @@
-package TreeAndBinarySearchTree;
+package src.TreeAndBinarySearchTree;
 
-import static TreeAndBinarySearchTree.VerticalOrderTraversal.constructTree;
+import static src.TreeAndBinarySearchTree.VerticalOrderTraversal.constructTree;
 
 public class IsValidBST {
     public static void main(String[] args) {

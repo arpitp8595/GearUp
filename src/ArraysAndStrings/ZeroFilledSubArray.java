@@ -1,4 +1,4 @@
-package ArraysAndStrings;
+package src.ArraysAndStrings;
 
 public class ZeroFilledSubArray {
     public static void main(String[] args) {
