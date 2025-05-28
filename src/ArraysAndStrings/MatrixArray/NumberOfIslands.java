@@ -1,4 +1,4 @@
-package ArraysAndStrings.MatrixArray;
+package src.ArraysAndStrings.MatrixArray;
 
 public class NumberOfIslands {
     // Function to count the number of islands in a given 2D grid map

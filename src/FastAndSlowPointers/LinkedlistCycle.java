@@ -1,4 +1,4 @@
-package FastAndSlowPointers;
+package src.FastAndSlowPointers;
 
 
   class ListNode {

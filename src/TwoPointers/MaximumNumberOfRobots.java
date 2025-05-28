@@ -1,4 +1,4 @@
-package TwoPointers;
+package src.TwoPointers;
 
 import java.util.PriorityQueue;
 

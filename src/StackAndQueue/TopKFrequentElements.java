@@ -1,4 +1,4 @@
-package StackAndQueue;
+package src.StackAndQueue;
 
 import java.util.Arrays;
 import java.util.HashMap;

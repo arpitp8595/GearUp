@@ -1,6 +1,6 @@
-package LinkedList;
+package src.LinkedList;
 
-import static LinkedList.MergeTwoSortedList.printList;
+import static src.LinkedList.ReverseLinkedList.printList;
 
 public class SwapNodesInPairs {
     public static void main(String[] args) {

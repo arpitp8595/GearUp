@@ -1,2 +1,162 @@
 Anjali Kumari(Google): https://leetcode.com/u/Rb_anjali99/
 
+Understand and usage of all patterns: https://www.youtube.com/watch?v=DjYZk8nrXVY&t=85s
+
+
+
+Temp Note: please remove after sometime
+
+### **Problem Analysis (LeetCode 1152 - Analyze User Website Visit Pattern)**
+
+**Problem Statement:**
+Given an array of user website visit records (`username[i]`, `timestamp[i]`, `website[i]`), find the **most frequently visited 3-sequence** of websites across all users. A 3-sequence is a list of websites visited in chronological order by the same user.
+
+**Constraints:**
+- A user must have visited at least 3 websites.
+- If multiple patterns have the same frequency, return the lexicographically smallest one.
+
+---
+
+### **Optimized Java Solution**
+
+```java
+import java.util.*;
+
+class Solution {
+    public List<String> mostVisitedPattern(String[] username, int[] timestamp, String[] website) {
+        // Step 1: Group visits by user (Map<username, List<Visit>>)
+        Map<String, List<Visit>> userVisits = new HashMap<>();
+        for (int i = 0; i < username.length; i++) {
+            userVisits.computeIfAbsent(username[i], k -> new ArrayList<>())
+                     .add(new Visit(timestamp[i], website[i]));
+        }
+
+        // Step 2: Generate all possible 3-sequences for each user and count frequencies
+        Map<List<String>, Integer> sequenceCounts = new HashMap<>();
+        for (List<Visit> visits : userVisits.values()) {
+            // Skip users with fewer than 3 visits
+            if (visits.size() < 3) continue;
+
+            // Sort visits by timestamp
+            Collections.sort(visits, (a, b) -> a.timestamp - b.timestamp);
+
+            // Generate all unique 3-sequences for this user
+            Set<List<String>> sequences = generateSequences(visits);
+
+            // Update global counts
+            for (List<String> seq : sequences) {
+                sequenceCounts.put(seq, sequenceCounts.getOrDefault(seq, 0) + 1);
+            }
+        }
+
+        // Step 3: Find the most frequent sequence (or lex smallest if tied)
+        List<String> result = new ArrayList<>();
+        int maxCount = 0;
+        for (Map.Entry<List<String>, Integer> entry : sequenceCounts.entrySet()) {
+            if (entry.getValue() > maxCount) {
+                maxCount = entry.getValue();
+                result = entry.getKey();
+            } else if (entry.getValue() == maxCount &&
+                       entry.getKey().toString().compareTo(result.toString()) < 0) {
+                result = entry.getKey();
+            }
+        }
+
+        return result;
+    }
+
+    // Helper to generate all unique 3-sequences from a user's sorted visits
+    private Set<List<String>> generateSequences(List<Visit> visits) {
+        Set<List<String>> sequences = new HashSet<>();
+        int n = visits.size();
+        for (int i = 0; i < n - 2; i++) {
+            for (int j = i + 1; j < n - 1; j++) {
+                for (int k = j + 1; k < n; k++) {
+                    sequences.add(Arrays.asList(
+                        visits.get(i).website,
+                        visits.get(j).website,
+                        visits.get(k).website
+                    ));
+                }
+            }
+        }
+        return sequences;
+    }
+
+    // Helper class to store visit data
+    private static class Visit {
+        int timestamp;
+        String website;
+        Visit(int timestamp, String website) {
+            this.timestamp = timestamp;
+            this.website = website;
+        }
+    }
+}
+```
+
+---
+
+### **Step-by-Step Explanation**
+
+#### **1. Group Visits by User**
+- **Goal:** Organize raw data by user for easier processing.
+- **Method:**
+  - Use a `HashMap<String, List<Visit>>` where the key is the username.
+  - For each record, add a `Visit` (timestamp, website) to the user's list.
+
+#### **2. Generate and Count 3-Sequences**
+- **For each user:**
+  - **Skip** users with fewer than 3 visits.
+  - **Sort** visits by timestamp to ensure chronological order.
+  - **Generate all unique 3-sequences** using nested loops (i < j < k).
+  - **Count** each sequence globally using another `HashMap`.
+
+#### **3. Determine the Result**
+- **Find the sequence with the highest count.**
+- **Handle ties:** If multiple sequences have the same count, pick the lexicographically smallest one (using `compareTo`).
+
+---
+
+### **Optimizations**
+1. **Pre-sorting Visits:** Ensures sequences are generated in chronological order.
+2. **HashSet for Sequences:** Avoids counting duplicate sequences for the same user.
+3. **Early Termination:** Skips users with fewer than 3 visits immediately.
+
+---
+
+### **Complexity Analysis**
+- **Time:**
+  - Grouping: `O(N)` (N = number of records).
+  - Sorting per user: `O(U * V log V)` (U = users, V = visits per user).
+  - Sequence generation: `O(U * V^3)` in the worst case (but optimized with `HashSet`).
+- **Space:**
+  - `O(U * V)` for storing user visits.
+  - `O(S)` for sequence counts (S = total unique sequences).
+
+---
+
+### **Example Walkthrough**
+**Input:**
+```java
+username = ["joe","joe","joe","james","james","james","james","mary","mary","mary"],
+timestamp = [1,2,3,4,5,6,7,8,9,10],
+website = ["home","about","career","home","cart","maps","home","home","about","career"]
+```
+
+**Execution:**
+1. **User "joe":** Visits `["home", "about", "career"]` → Only one 3-sequence: `["home", "about", "career"]`.
+2. **User "james":** Visits `["home", "cart", "maps", "home"]` → Generates 4 sequences (e.g., `["home", "cart", "maps"]`).
+3. **User "mary":** Visits `["home", "about", "career"]` → Same as "joe".
+4. **Result:** `["home", "about", "career"]` (appears twice, no ties).
+
+**Output:** `["home", "about", "career"]`
+
+---
+
+### **Key Takeaways**
+- **Grouping data by user** simplifies chronological processing.
+- **Nested loops** efficiently generate sequences while avoiding duplicates.
+- **Lexicographical comparison** handles frequency ties gracefully.
+
+This solution efficiently handles the problem constraints while remaining readable and maintainable. 🚀

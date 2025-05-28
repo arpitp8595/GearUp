@@ -1,8 +1,8 @@
-package LinkedList;
+package src.LinkedList;
 
 import java.util.Objects;
 
-import static LinkedList.MergeTwoSortedList.printList;
+import static src.LinkedList.MergeTwoSortedList.printList;
 
 public class IntersectionNodeInList {
     public static void main(String[] args) {

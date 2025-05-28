@@ -1,4 +1,4 @@
-package ArraysAndStrings.SystemDesign;
+package src.ArraysAndStrings.SystemDesign;
 
 import java.util.Arrays;
 import java.util.Objects;
