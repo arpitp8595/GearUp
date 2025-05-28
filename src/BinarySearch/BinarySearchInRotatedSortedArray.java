@@ -1,4 +1,4 @@
-package BinarySearch;
+package src.BinarySearch;
 
 public class BinarySearchInRotatedSortedArray {
     public static void main(String[] args) {

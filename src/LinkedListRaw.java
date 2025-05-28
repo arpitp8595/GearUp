@@ -1,3 +1,5 @@
+package src;
+
 public class LinkedListRaw {
 
     public static class Node{

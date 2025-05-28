@@ -1,9 +1,9 @@
-package Graph;
+package src.Graph;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import static Graph.DFSTraversal.dfsTraversal;
+import static src.Graph.DFSTraversal.dfsTraversal;
 
 public class NumberOfProvinces {
 

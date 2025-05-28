@@ -1,4 +1,4 @@
-package TwoPointers;
+package src.TwoPointers;
 
 public class FindPeakOfMountainArray {
     public static void main(String[] args) {

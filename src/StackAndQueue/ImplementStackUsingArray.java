@@ -1,4 +1,4 @@
-package StackAndQueue;
+package src.StackAndQueue;
 
 class Stack {
     private static final int STACK_CAPACITY = 101;

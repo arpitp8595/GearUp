@@ -1,8 +1,8 @@
-package ArraysAndStrings;
+package src.ArraysAndStrings;
 
 public class MakeArrayValidWithMinimumSwaps {
     public static void main(String[] args) {
-    int[] nums = {3, 1, 5, 4, 2};
+    int[] nums = {3, 2, 5, 4, 1};
     System.out.println("Minimum Swaps required to make an array valid: "+minimumSwaps(nums));
     }
     /**

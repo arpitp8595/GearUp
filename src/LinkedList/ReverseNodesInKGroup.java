@@ -1,6 +1,6 @@
-package LinkedList;
+package src.LinkedList;
 
-import static LinkedList.MergeTwoSortedList.printList;
+import static src.LinkedList.MergeTwoSortedList.printList;
 
 public class ReverseNodesInKGroup {
     public static void main(String[] args) {
