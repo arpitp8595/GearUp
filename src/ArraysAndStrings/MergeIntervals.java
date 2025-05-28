@@ -1,10 +1,22 @@
 package src.ArraysAndStrings;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class MergeIntervals {
+
+    public static void main(String[] args) {
+        int[][] intervals = {
+                {1, 3},
+                {2, 6},
+                {8, 10},
+                {15, 18}
+        };
+        int[][] merged = merge(intervals);
+        for (int[] interval : merged) {
+            System.out.println(Arrays.toString(interval));
+        }
+    }
+
     public static int[][] merge(int[][] intervals) {
         if (intervals.length <= 1) {
             return intervals;
@@ -12,6 +24,7 @@ public class MergeIntervals {
 
         // Sort intervals by starting value
         Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
+        //Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
 
         // Use a list to store merged intervals
         List<int[]> mergedIntervals = new LinkedList<>();
@@ -37,18 +50,5 @@ public class MergeIntervals {
         }
 
         return mergedIntervals.toArray(new int[mergedIntervals.size()][]);
-    }
-
-    public static void main(String[] args) {
-        int[][] intervals = {
-                {1, 3},
-                {2, 6},
-                {8, 10},
-                {15, 18}
-        };
-        int[][] merged = merge(intervals);
-        for (int[] interval : merged) {
-            System.out.println(Arrays.toString(interval));
-        }
     }
 }
