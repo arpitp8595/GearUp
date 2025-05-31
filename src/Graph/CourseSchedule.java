@@ -10,7 +10,7 @@ public class CourseSchedule {
     public static void main(String[] args) {
         int numCourses = 2;
         int[][] prerequisites = {{1,0}};
-        System.out.println("courses to be taken: "+canFinish(numCourses, prerequisites));
+        System.out.println("courses can be taken: "+canFinish(numCourses, prerequisites));
     }
 
     /**
