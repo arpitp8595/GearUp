@@ -11,7 +11,7 @@ public class BinarySearchInRotatedSortedArray {
         int length = nums.length;
         int s = 0, e = length-1;
         while (s < e) {
-            int mid = s+ (e-s)/2;
+            int mid = s + (e-s)/2;
             if (nums[mid] == target) {
                 return mid;
             }
