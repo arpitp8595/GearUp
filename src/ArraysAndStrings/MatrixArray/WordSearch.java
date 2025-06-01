@@ -1,4 +1,4 @@
-package ArraysAndStrings.MatrixArray;
+package src.ArraysAndStrings.MatrixArray;
 public class WordSearch {
 
     public static void main(String[] args) {

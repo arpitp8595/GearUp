@@ -1,4 +1,4 @@
-package ArraysAndStrings;
+package src.TwoPointers;
 
 import java.util.Arrays;
 import java.util.HashMap;

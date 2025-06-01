@@ -1,4 +1,4 @@
-package ArraysAndStrings;
+package src.ArraysAndStrings.Strings;
 
 public class RepeatingCharInString {
     public static void main(String[] args) {

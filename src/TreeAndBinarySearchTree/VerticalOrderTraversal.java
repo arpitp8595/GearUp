@@ -1,4 +1,4 @@
-package TreeAndBinarySearchTree;
+package src.TreeAndBinarySearchTree;
 
 import java.util.*;
 
@@ -28,13 +28,6 @@ class Pair<T, I extends Number> {
         this.idx = idx;
     }
 
-}
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode() {}
-    TreeNode(int val) { this.val = val; }
 }
 
 

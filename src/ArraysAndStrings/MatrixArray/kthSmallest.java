@@ -1,4 +1,4 @@
-package ArraysAndStrings.MatrixArray;
+package src.ArraysAndStrings.MatrixArray;
 
 public class kthSmallest {
 
@@ -29,8 +29,8 @@ public class kthSmallest {
             int j = n - 1;
 
             // Count the number of elements less than or equal to `mid`
-            for (int i = 0; i < m; i++) {
-                while (j >= 0 && matrix[i][j] > mid) {
+            for (int[] ints : matrix) {
+                while (j >= 0 && ints[j] > mid) {
                     j--;
                 }
                 count += j + 1;

@@ -1,14 +1,4 @@
-package LinkedList;
-
-class ListNode{
-    int val;
-    ListNode next;
-
-    ListNode(int val) {
-        this.val = val;
-        next = null;
-    }
-}
+package src.LinkedList;
 
 public class ReverseLinkedList {
     public static void main(String[] args) {
@@ -72,8 +62,6 @@ public class ReverseLinkedList {
             }
         System.out.println("null");
     }
-
-
 
     //O(N) O(1)
     public static void reverseLinkedList(ListNode head) {
