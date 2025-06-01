@@ -29,13 +29,6 @@ class Pair<T, I extends Number> {
     }
 
 }
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode() {}
-    TreeNode(int val) { this.val = val; }
-}
 
 
 //Prace More: https://leetcode.com/problem-list/binary-tree/
