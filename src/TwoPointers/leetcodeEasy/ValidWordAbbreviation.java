@@ -1,6 +1,6 @@
 package src.TwoPointers.leetcodeEasy;
 
-public class ValiWordAbbreviation {
+public class ValidWordAbbreviation {
     public static void main(String[] args) {
         String word = "internationalization";
         String abbr = "i12iz4n";
