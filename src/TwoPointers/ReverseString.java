@@ -11,7 +11,7 @@ public class ReverseString {
         int s = 0;
         int e = n-1;
         char[] chars = str.toCharArray();
-        while (s<=e) {j
+        while (s<=e) {
             char temp = chars[s];
             chars[s] = chars[e];
             chars[e] = temp;
