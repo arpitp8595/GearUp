@@ -4,6 +4,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
+import static src.TreeAndBinarySearchTree.KthSmallestElementInBST.KthSmallestElementOfBST;
+
 public class TreeWithIterativeApproach {
 
     public static void main(String[] args) {
@@ -31,7 +33,7 @@ public class TreeWithIterativeApproach {
         System.out.println("Invert Tree: ");
         //invertTree(root);
         System.out.println("\n");
-        System.out.println("Kth Smallest element: " +KthSmallestElement(root, 3));
+        System.out.println("Kth Smallest element: " +KthSmallestElementOfBST(root, 3));
 /*
                   4
                 /   \
@@ -68,7 +70,7 @@ public class TreeWithIterativeApproach {
         System.out.println("Invert Tree: " );
         //invertTree1(root);
         System.out.println("\n");
-        System.out.println("Kth smallest element: "+KthSmallestElement(root, 3));
+        System.out.println("Kth smallest element: "+KthSmallestElementOfBST(root, 3));
         System.out.println("Are trees symmetric? : "+isSymmetric(root2));
 
         System.out.println("Depth of the treee: "+ maxDepth(root));
@@ -217,24 +219,6 @@ public class TreeWithIterativeApproach {
         while (!stack2.isEmpty()) {
             System.out.print(stack2.pop().val + " ");
         }
-    }
-
-    public static int KthSmallestElement(TreeNode root, int k) {
-        Stack<TreeNode> stack = new Stack<>();
-        TreeNode current = root;
-        while (current!=null || !stack.isEmpty()) {
-            while (current!= null) {
-                stack.push(current);
-                current = current.left;
-            }
-            current = stack.pop();
-            k--;
-            if (k==0){
-                return current.val;
-            }
-            current = current.right;
-        }
-        return -1;
     }
 
     public static int maxDepth(TreeNode root) {

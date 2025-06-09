@@ -7,7 +7,7 @@ public class SliddingWindowMaximum {
     public static void main(String[] args) {
         int[] nums = {1,2,1,0,4,2,6};
         int k = 3;
-        System.out.println("Total Distinct Elements available in Kth window element: "+ Arrays.toString(getDistinctElements(nums, k)));
+        System.out.println("Distinct Elements available in Kth window element: "+ Arrays.toString(getDistinctElements1(nums, k)));
     }
 
     private static int[] getDistinctElements(int[] nums, int k) {

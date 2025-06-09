@@ -10,10 +10,13 @@ public class ReverseNodesInKGroup {
         head.next.next.next = new ListNode(4);
         head.next.next.next.next = new ListNode(5);
         int n = 2;
+        System.out.println("Original List: ");
+        printList(head);
         System.out.println("Resulted Swapped List: ");
         printList(reverseKGroup(head, n));
     }
 
+    //O(N) O(1)
     public static ListNode reverseKGroup(ListNode head, int k) {
         ListNode dummy = new ListNode(-1);
         dummy.next = head;

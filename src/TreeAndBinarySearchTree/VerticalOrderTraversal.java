@@ -29,13 +29,6 @@ class Pair<T, I extends Number> {
     }
 
 }
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode() {}
-    TreeNode(int val) { this.val = val; }
-}
 
 
 //Prace More: https://leetcode.com/problem-list/binary-tree/
@@ -82,14 +75,22 @@ public class VerticalOrderTraversal {
     }
 
     public static TreeNode constructTree(int[] nodes) {
-        index++;
-        if (nodes[index] == -1) {
+        if (index >= nodes.length) {  // Ensure index is within bounds
             return null;
         }
+
+        if (nodes[index] == -1) {
+            index++; // Move to the next index before returning
+            return null;
+        }
+
         TreeNode newNode = new TreeNode(nodes[index]);
+        index++; // Move to the next index before recursive calls
+
         newNode.left = constructTree(nodes);
         newNode.right = constructTree(nodes);
 
         return newNode;
     }
+
 }
