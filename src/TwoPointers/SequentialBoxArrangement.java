@@ -2,9 +2,9 @@ package src.TwoPointers;
 
 import java.util.Arrays;
 
-public class SequencialBoxArrangement {
+public class SequentialBoxArrangement {
     public static void main(String[] args) {
-        int[] boxes = {1,2,5,6,9,10,14};
+        int[] boxes = {1,2,9,10,5,6,14};
         int[] boxes1 = {6,5,7,4,2,1,26,0,12,14,15,16,18,19,20,25};
     /*
     we need to find the number of sequences where consecutive numbers form groups.
@@ -15,7 +15,7 @@ public class SequencialBoxArrangement {
     14
     This gives us a total of 4 sequences.
     */
-    System.out.println("Total sequences: "+getTotalNoOfSequences(boxes1));
+    System.out.println("Total sequences: "+getTotalNoOfSequences(boxes));
     }
 
     private static int getTotalNoOfSequences(int[] boxes) {
