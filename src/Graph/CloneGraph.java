@@ -8,11 +8,11 @@ class Node {
     public List<Node> neighbors;
     public Node() {
         this.val = 0;
-        this.neighbors = new ArrayList<Node>();
+        this.neighbors = new ArrayList<>();
     }
     public Node(int val) {
         this.val = val;
-        this.neighbors = new ArrayList<Node>();
+        this.neighbors = new ArrayList<>();
     }
     public Node(int val, ArrayList<Node> neighbors) {
         this.val = val;
@@ -134,5 +134,4 @@ public class CloneGraph {
         }
         return false;
     }
-
 }

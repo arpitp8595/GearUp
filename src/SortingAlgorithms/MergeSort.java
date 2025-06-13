@@ -9,8 +9,7 @@ public class MergeSort {
     // Merges two subarrays of arr[].
     // First subarray is arr[l..m]
     // Second subarray is arr[m+1..r]
-    static void merge(int[] arr, int l, int m, int r)
-    {
+    static void merge(int[] arr, int l, int m, int r) {
         // Find sizes of two subarrays to be merged
         int n1 = m - l + 1;
         int n2 = r - m;
@@ -61,8 +60,7 @@ public class MergeSort {
 
     // Main function that sorts arr[l..r] using
     // merge()
-    static void sort(int[] arr, int l, int r)
-    {
+    static void sort(int[] arr, int l, int r) {
         if (l < r) {
 
             // Find the middle point
@@ -78,8 +76,7 @@ public class MergeSort {
     }
 
     // Driver code
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         int[] arr = { 12, 11, 13, 5, 6, 7 };
 
         System.out.println("Given array is: "+ Arrays.toString(arr));
