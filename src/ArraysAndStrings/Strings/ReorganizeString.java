@@ -1,4 +1,4 @@
-package src.ArraysAndStrings;
+package src.ArraysAndStrings.Strings;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,8 +31,8 @@ public class ReorganizeString {
             sb.append(firstElement);
             sb.append(secondElement);
 
-            freqMap.put(firstElement, freqMap.get(firstElement)-1);
-            freqMap.put(secondElement, freqMap.get(secondElement)-1);
+            freqMap.put(firstElement, freqMap.getOrDefault(firstElement,0)-1);
+            freqMap.put(secondElement, freqMap.getOrDefault(secondElement,0)-1);
 
             if (freqMap.get(firstElement) > 0) {
                 maxHeap.offer(firstElement);
