@@ -28,7 +28,7 @@ public class TreeWithIterativeApproach {
         root.left.left.left = new TreeNode(1);
 
         System.out.println("Original Tree: ");
-        //printPreOrder(root);
+        printPreOrder(root);
         System.out.println("\n");
         System.out.println("Invert Tree: ");
         //invertTree(root);
@@ -73,7 +73,7 @@ public class TreeWithIterativeApproach {
         System.out.println("Kth smallest element: "+KthSmallestElementOfBST(root, 3));
         System.out.println("Are trees symmetric? : "+isSymmetric(root2));
 
-        System.out.println("Depth of the treee: "+ maxDepth(root));
+        System.out.println("Depth of the tree: "+ maxDepth(root));
     }
 
     private static boolean isSymmetric(TreeNode root1) {
@@ -127,39 +127,6 @@ public class TreeWithIterativeApproach {
             if (node.left!=null) {
                 stack.push(node.left);
             }
-        }
-        printPreOrder(root);
-    }
-    public static void invertTree(TreeNode root) {
-        // Step 1: Create a stack to simulate DFS traversal
-        Stack<TreeNode> stack = new Stack<>();
-
-        // Step 2: Base case – if root is null, return (nothing to invert)
-        if (root != null) {
-            stack.push(root); // Start DFS with the root node
-        }
-
-        // Step 3: Loop through all nodes in the stack
-        while (!stack.isEmpty()) {
-            // Pop the current node from the stack
-            TreeNode current = stack.pop();
-
-            // Optional: Debug print
-            // System.out.println("Visiting node: " + current.val);
-
-            // Step 4: Push left and right children onto the stack (if they exist)
-            // Order matters: push left first, then right – because it's LIFO (stack)
-            if (current.left != null) {
-                stack.push(current.left);
-            }
-            if (current.right != null) {
-                stack.push(current.right);
-            }
-
-            // Step 5: Swap the left and right children
-            TreeNode temp = current.left;
-            current.left = current.right;
-            current.right = temp;
         }
         printPreOrder(root);
     }

@@ -7,6 +7,7 @@ public class MinimumSizeSubArraySum {
         System.out.println("Result: "+minSubArrayLen(target, nums));
     }
 
+    //https://leetcode.com/problems/minimum-size-subarray-sum/description/
     //https://leetcode.com/problems/minimum-size-subarray-sum/solutions/5908815/video-sliding-window-solution-by-niits-ywp6/
     public static int minSubArrayLen(int target, int[] nums) { //O(N) O(1)
         int minLen = Integer.MAX_VALUE;

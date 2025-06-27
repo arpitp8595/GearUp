@@ -1,5 +1,7 @@
 package src.LinkedList;
 
+import static src.LinkedList.MergeTwoSortedList.mergeSortedList;
+
 public class ReverseLinkedList {
     public static void main(String[] args) {
         ListNode head = new ListNode(1);
@@ -28,30 +30,6 @@ public class ReverseLinkedList {
 
     }
 
-    private static ListNode mergeSortedList(ListNode head1, ListNode head2) {
-        if (head1 == null) return head2;
-        if (head2 == null) return head1;
-
-        ListNode dummy = new ListNode(-1);
-        ListNode current = dummy;
-
-        while (head1 != null && head2 != null) {
-            if (head1.val <= head2.val) {
-                current.next = head1;
-                head1 = head1.next;
-            } else {
-                current.next = head2;
-                head2 = head2.next;
-            }
-            current = current.next;
-        }
-
-        // Attach remaining nodes (no need for loops)
-        current.next = (head1 != null) ? head1 : head2;
-
-        return dummy.next;
-    }
-
     public static void printList(ListNode head) {
            // A loop that runs till head is null
             while (head != null) {
@@ -66,16 +44,16 @@ public class ReverseLinkedList {
     //O(N) O(1)
     public static void reverseLinkedList(ListNode head) {
         // Initialize three pointers: curr, prev and next
-        ListNode curr = head, prev = null, next;
+        ListNode curr = head, prev = null;
         // Traverse all the nodes of Linked List
         while (curr != null) {
-            // Store next
-            next = curr.next;
+            // Store curr.next
+            ListNode temp = curr.next;
             // Reverse current node's next pointer
             curr.next = prev;
             // Move pointers one position ahead
             prev = curr;
-            curr = next;
+            curr = temp;
         }
         printList(prev);
     }

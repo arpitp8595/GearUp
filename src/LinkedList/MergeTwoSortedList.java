@@ -14,12 +14,19 @@ public class MergeTwoSortedList {
         head1.next.next.next = new ListNode(9);
         head1.next.next.next.next = new ListNode(10);
 
+        System.out.println("First List: "); printList(head);
+
+        System.out.println("Second List: "); printList(head1);
+
         System.out.println("Merged Lists: ");
         printList(mergeSortedList(head, head1));
     }
 
     //O(n + m) O(1)
-    private static ListNode mergeSortedList(ListNode head1, ListNode head2) {
+    static ListNode mergeSortedList(ListNode head1, ListNode head2) {
+        if (head1 == null) return head2;
+        if (head2 == null) return head1;
+
         ListNode mergedLL = new ListNode(-1);  // dummy node
         ListNode temp = mergedLL;
 
@@ -48,7 +55,7 @@ public class MergeTwoSortedList {
         // A loop that runs till head is null
         while (head != null) {
             // Printing data of current node
-            System.out.print(head.val + "-->");
+            System.out.print(head.val + " -> ");
             // Moving to the next node
             head = head.next;
         }

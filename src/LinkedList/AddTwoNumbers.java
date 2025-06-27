@@ -16,6 +16,10 @@ public class AddTwoNumbers {
         head1.next.next.next = new ListNode(9);
         head1.next.next.next.next = new ListNode(10);
 
+        System.out.println("List One: ");
+        printList(head);
+        System.out.println("List Two: ");
+        printList(head1);
         System.out.println("Result Node after sum: ");
         printList(addTwoNumbers(head, head1));
     }
