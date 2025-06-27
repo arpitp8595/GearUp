@@ -47,7 +47,7 @@ public class ReverseLinkedList {
         ListNode curr = head, prev = null;
         // Traverse all the nodes of Linked List
         while (curr != null) {
-            // Store temp
+            // Store curr.next
             ListNode temp = curr.next;
             // Reverse current node's next pointer
             curr.next = prev;
