@@ -2,10 +2,11 @@ package src.ArraysAndStrings;
 
 public class MaxSubArraySum {
     public static void main(String[] args) {
-        int[] nums = {-2,-3,4,-1,-2,1,5,-3};
-        System.out.println("Maximum sum of the subarray: " +getMaxSum(nums));
+        int[] nums = {-2,1,-3,4,-1,2,1,-5,4};
+        System.out.println("Maximum sum of the sub-array: " +getMaxSum(nums));
     }
 
+    //Given an integer array nums, find the subarray with the largest sum, and return its sum
     public static int getMaxSum(int[] nums) {
         // Initialize maxSum to the smallest possible integer value
         int maxSum = Integer.MIN_VALUE;
